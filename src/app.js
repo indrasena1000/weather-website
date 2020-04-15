@@ -5,6 +5,7 @@ const geocode = require('../src/utils/geocode.js')
 const weather = require('../src/utils/weather.js')
 
 const app = express()
+const port = process.env.PORT || 3000
 //defining path for Express config
 const pubDirPath = (path.join(__dirname,'../public'))
 const viewsPath =  (path.join(__dirname,'../templates/views'))
@@ -16,6 +17,7 @@ app.set('views',viewsPath)
 hbs.registerPartials(partialsPath)
 //setup static directory
 app.use(express.static(pubDirPath))
+
 
 
 app.get('',(req,res)=>{
@@ -97,6 +99,6 @@ app.get('/help/*',(req,res)=>{
 
 
 
-app.listen(3000,()=>{
-    console.log('port:3000 is running')
+app.listen(port,()=>{
+    console.log('port:3000 is running' + port)
 })
